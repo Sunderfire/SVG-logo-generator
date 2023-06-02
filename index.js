@@ -5,31 +5,34 @@ const { writeFile } = require('fs/promises');
 const {Circle, Triangle, Square} = require('./lib/shapes');
 const {questions} = require('./lib/questions');
 
+//Prompt User and Write SVG
 async function run() {
     const responses = await inquirer.prompt(questions)
 console.log(responses)
 let shape;
 switch(responses.shape) {
-    case "circle":
-        shape = new Circle(responses.shapeColour)
-        break;
     case "Circle":
-        shape = new Circle(responses.shapeColour)
-        break;
-    case "triangle":
-        shape = new Triangle(responses.shapeColour)
+        shape = new Circle(
+            responses.shapeColour,
+            responses.text,
+            responses.textColour)
         break;
     case "Triangle":
-        shape = new Triangle(responses.shapeColour)
-        break;
-    case "square":
-        shape = new Square(responses.shapeColour)
+        shape = new Triangle(
+            responses.shapeColour,
+            responses.text,
+            responses.textColour)
         break;
     case "Square":
-        shape = new Square(responses.shapeColour)
+        shape = new Square(
+            responses.shapeColour,
+            responses.text,
+            responses.textColour)
         break;
 }
-console.log(shape)
+const newSVG = shape.render()
+await writeFile(join(__dirname, 'logo.svg'), newSVG);
+console.info("Generated logo.svg")
 }
 
 run();
