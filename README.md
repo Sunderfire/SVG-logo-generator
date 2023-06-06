@@ -10,6 +10,8 @@ Run the application from the command line using node index.js.  You will be prom
 
 Video Link: https://watch.screencastify.com/v/ZakbWnb0sORkvlrF6CpD
 
+Github Link: https://github.com/Sunderfire/SVG-logo-generator.git
+
 ## Credits
 
 Shoutout to my tutor Dane for helping me figure out where to start.
